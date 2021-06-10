@@ -9,6 +9,13 @@ A ReactJS web app that helps users to store their Spotify playlists locally. The
 3. Allow to save the playlists locally by drag'n'drop functionality.
 4. Use, optionally, any ui library like material-ui, etc.
 
+# User flows:
+- Hop on to the landing page to get top featured playlists from spotify and locally-stored playlists, if any.
+- To save a playlist-item locally, drag the item from left-list to the right list-area (initially, when no saved items, to the box which says smthing like "drag here..".
+- Items can exist in any one of the lists, i.e., either right or left.
+- To open the playlist on spotify - click on the small playlist-cover (image) in any of the lists.
+- To remove the currently stored items - one by one - click on `x` button; It removes the item from right-side and add to left-side.
+
 ---
 
 # Getting Started with Create React App
