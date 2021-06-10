@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import './SpotifyItem.scss';
 
-const SpotifyItem = ({ name, imgSrc, description, src, totalTracks }) => (
-  <div className="spotify-item" title={description}>
-    <span>
-      {name} having {totalTracks} tracks
-    </span>
-    <a href={src} target="_blank" rel="noreferrer">
-      <img src={imgSrc} width={50} height={50} alt={name} />
-    </a>
-  </div>
+const SpotifyItem = React.forwardRef(
+  ({ name, imgSrc, description, src, totalTracks, cls }, ref) => (
+    <div className={cx('spotify-item', cls)} title={description} ref={ref}>
+      <span>
+        {name} having {totalTracks} tracks
+      </span>
+      <a href={src} target="_blank" rel="noreferrer">
+        <img src={imgSrc} width={50} height={50} alt={name} />
+      </a>
+    </div>
+  ),
 );
 
 SpotifyItem.props = (data) => ({
@@ -28,6 +31,11 @@ SpotifyItem.propTypes = {
   description: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
   totalTracks: PropTypes.number.isRequired,
+  cls: PropTypes.string,
+};
+
+SpotifyItem.defaultProps = {
+  cls: '',
 };
 
 export default SpotifyItem;

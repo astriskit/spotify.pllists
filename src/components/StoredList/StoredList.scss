@@ -1,0 +1,13 @@
+.empty-stored {
+  padding: 20px;
+  border: 1px solid grey;
+}
+.stored-list {
+  min-height: 80vh;
+}
+.empty-stored,
+.stored-list {
+  @media screen and (min-width: 650px) {
+    max-width: 60%;
+  }
+}

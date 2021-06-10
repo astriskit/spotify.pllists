@@ -5,12 +5,14 @@ import cx from 'classnames';
 
 import './List.scss';
 
-const List = ({ data, ItemEl, getKey, itemProps, cls = '' }) => (
-  <div className={cx('list', cls)}>
-    {data.map((point) => (
-      <ItemEl key={getKey(point)} {...itemProps(point)} />
-    ))}
-  </div>
+const List = React.forwardRef(
+  ({ data, ItemEl, getKey, itemProps, cls = '' }, ref) => (
+    <div className={cx('list', cls)} ref={ref}>
+      {data.map((point) => (
+        <ItemEl key={getKey(point)} {...itemProps(point)} />
+      ))}
+    </div>
+  ),
 );
 
 List.propTypes = {

@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { setAllLocalItems } from '../utils/localstore';
 
 const localPlaylistSlice = createSlice({
   name: 'local-playlists',
@@ -9,6 +10,7 @@ const localPlaylistSlice = createSlice({
   reducers: {
     set(state, action) {
       state.items = action.payload;
+      setAllLocalItems(state.items);
     },
     setItem(state, action) {
       if (state.items.some(({ id }) => action.payload.id === id)) {
@@ -16,6 +18,7 @@ const localPlaylistSlice = createSlice({
       } else {
         state.items.push(action.payload);
       }
+      setAllLocalItems(state.items);
     },
   },
 });

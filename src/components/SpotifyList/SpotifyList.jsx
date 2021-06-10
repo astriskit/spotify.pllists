@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import List from '../List/List';
-import SpotifyItem from '../SpotifyItem/SpotifyItem';
+import DragSpotifyItem from '../DragSpotifyItem/DragSpotifyItem';
 
 import { tkPlaylists as getPlaylists } from '../../services/playlists';
 
@@ -16,9 +16,9 @@ const SpotifyList = ({ fetchPlaylists, playlists, loading }) => {
     fetchPlaylists();
   }, []);
 
-  if (!playlists.length) return null;
+  if (!playlists.length) return <h5>Nothing to show here!</h5>;
 
-  if (loading) return <h6>fetching ...</h6>;
+  if (loading) return <h5>fetching ...</h5>;
 
   const key = (data) => data.id;
 
@@ -26,9 +26,9 @@ const SpotifyList = ({ fetchPlaylists, playlists, loading }) => {
     <List
       data={playlists}
       cls="spotify-list"
-      itemProps={SpotifyItem.props}
+      itemProps={DragSpotifyItem.props}
       getKey={key}
-      ItemEl={SpotifyItem}
+      ItemEl={DragSpotifyItem}
     />
   );
 };
