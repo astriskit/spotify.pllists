@@ -1,3 +1,12 @@
+# Objectives:
+
+1. Use react and redux.
+2. Use the spotify api to get featured-playlists.
+3. Allow to save the playlists locally by drag'n'drop functionality.
+4. Use, optionally, any ui library like material-ui, etc.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

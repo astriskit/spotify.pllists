@@ -1,0 +1,16 @@
+.app {
+  .table-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    & > div {
+      flex: 1;
+    }
+    .spotify > :last-child,
+    .local > :last-child {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+  }
+}
