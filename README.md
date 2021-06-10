@@ -1,3 +1,7 @@
+# About
+
+A ReactJS web app that helps users to store their Spotify playlists locally. The web app fetches new featured playlists from the Spotify api and users can then locally save the playlists that they like.
+
 # Objectives:
 
 1. Use react and redux.
