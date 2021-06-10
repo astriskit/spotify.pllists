@@ -29,6 +29,7 @@ export const getToken = async (force = false) => {
     sessionStorage.setItem('token', token);
     return token;
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(`Access token not generated: ${err.message}`);
     throw err;
   }
@@ -78,6 +79,7 @@ export const tkPlaylists = async (
         true,
       );
     }
+    // eslint-disable-next-line no-console
     console.error(`Playlists not fetched: ${error.message}`);
     throw error;
   }

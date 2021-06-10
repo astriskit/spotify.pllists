@@ -5,6 +5,7 @@
   align-items: center;
   & > :first-child {
     flex: 1;
+    margin-bottom: 0px;
   }
   button:last-child {
     font-size: medium;
