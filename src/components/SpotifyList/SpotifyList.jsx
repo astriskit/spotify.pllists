@@ -10,6 +10,8 @@ import { tkPlaylists as getPlaylists } from '../../services/playlists';
 import playlistSlice from '../../slices/playlists';
 import storedlistSlice from '../../slices/stored';
 
+import useSorter from '../../utils/useSorter';
+
 import './SpotifyList.scss';
 
 const SpotifyList = ({
@@ -18,6 +20,7 @@ const SpotifyList = ({
   storedPlaylists,
   loading,
 }) => {
+  const sortedPlaylists = useSorter(playlists);
   React.useEffect(() => {
     fetchPlaylists(storedPlaylists);
   }, []);
@@ -30,11 +33,12 @@ const SpotifyList = ({
 
   return (
     <List
-      data={playlists}
+      data={sortedPlaylists}
       cls="spotify-list"
       itemProps={DragSpotifyItem.props}
       getKey={key}
       ItemEl={DragSpotifyItem}
+      numbered
     />
   );
 };

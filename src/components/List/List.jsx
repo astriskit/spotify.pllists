@@ -6,10 +6,20 @@ import cx from 'classnames';
 import './List.scss';
 
 const List = React.forwardRef(
-  ({ data, ItemEl, getKey, itemProps, cls = '' }, ref) => (
+  ({ data, ItemEl, getKey, itemProps, cls = '', numbered }, ref) => (
     <div className={cx('list', cls)} ref={ref}>
-      {data.map((point) => (
-        <ItemEl key={getKey(point)} {...itemProps(point)} />
+      {data.map((point, index) => (
+        <div
+          key={getKey(point)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          {numbered && <span>{index + 1}</span>}&nbsp;
+          <ItemEl {...itemProps(point)} />
+        </div>
       ))}
     </div>
   ),
@@ -21,10 +31,12 @@ List.propTypes = {
   cls: PropTypes.string,
   itemProps: PropTypes.func.isRequired,
   getKey: PropTypes.func.isRequired,
+  numbered: PropTypes.bool,
 };
 
 List.defaultProps = {
   cls: '',
+  numbered: false,
 };
 
 export default List;

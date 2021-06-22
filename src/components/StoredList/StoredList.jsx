@@ -9,10 +9,14 @@ import storedSlice from '../../slices/stored';
 import List from '../List/List';
 import StoredItem from '../StoredItem/StoredItem';
 
-import './StoredList.scss';
 import playlistSlice from '../../slices/playlists';
 
+import useSorter from '../../utils/useSorter';
+
+import './StoredList.scss';
+
 const StoredList = React.forwardRef(({ playlists, onRemoveItem }, ref) => {
+  const sortedPlaylists = useSorter(playlists);
   if (!playlists.length)
     return (
       <h5 className="empty-stored" ref={ref}>
@@ -23,7 +27,8 @@ const StoredList = React.forwardRef(({ playlists, onRemoveItem }, ref) => {
   const itemProps = StoredItem.props({ onRemoveItem });
   return (
     <List
-      data={playlists}
+      numbered
+      data={sortedPlaylists}
       ItemEl={StoredItem}
       getKey={getKey}
       itemProps={itemProps}

@@ -3,6 +3,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
   & > :first-child {
     flex: 1;
     margin-bottom: 0px;
